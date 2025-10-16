@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/16 14:05:28 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/16 23:56:58 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 int		ft_atoi(char *str);
 void	ft_bzero(void *str, size_t size);
 void	*ft_calloc(size_t nmemb, size_t len);
+char	**ft_split(char const *str, char c);
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

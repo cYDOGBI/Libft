@@ -6,7 +6,7 @@
 #    By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 16:50:18 by tlaranje          #+#    #+#              #
-#    Updated: 2025/10/16 15:31:34 by tlaranje         ###   ########.fr        #
+#    Updated: 2025/10/16 23:57:56 by tlaranje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ PART1 = ft_tolower.c ft_toupper.c ft_isprint.c ft_isascii.c ft_isalnum.c \
 		ft_memset.c ft_memmove.c ft_strlcpy.c
 
 
-PART2 = ft_substr.c ft_strjoin.c  ft_strtrim.c#ft_itoa.c ft_split.c ft_striteri.c \
+PART2 = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c #ft_itoa.c ft_striteri.c \
 		ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c \
 		ft_putendl_fd.c	ft_putnbr_fd.c
 

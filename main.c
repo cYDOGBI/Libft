@@ -6,25 +6,29 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/16 16:00:17 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/17 00:29:27 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void test_atoi(void) {
+void	test_atoi(void)
+{
 	printf("\nft_atoi(\"42\") = %d\n", ft_atoi("42"));
-	printf("ft_atoi(\"13 1\") = %d\n", ft_atoi("13 13"));
+	printf("ft_atoi(\"13 13\") = %d\n", ft_atoi("13 13"));
 }
 
-void test_bzero(void) {
-	char str[] = "Hello, World!";
+void	test_bzero(void)
+{
+	char	str[] = "Hello, World!";
+
 	printf("\nString: %s", str);
 	ft_bzero(str, 3);
 	printf("\nft_bzero(buffer, 3) = %s\n", str);
 }
 
-void test_calloc(void) {
+void	test_calloc(void)
+{
 	int	size;
 	int *arr;
 
@@ -37,44 +41,52 @@ void test_calloc(void) {
 	free(arr);
 }
 
-void test_isalnum(void) {
+void	test_isalnum(void)
+{
 	printf("\nft_isalnum('a') = %d\n", ft_isalnum('a'));
 	printf("ft_isalnum('#') = %d\n", ft_isalnum('#'));
 }
 
-void test_isalpha(void) {
+void	test_isalpha(void)
+{
 	printf("\nft_isalpha('Z') = %d\n", ft_isalpha('Z'));
 	printf("ft_isalpha('9') = %d\n", ft_isalpha('9'));
 }
 
-void test_isascii(void) {
+void	test_isascii(void)
+{
 	printf("\nft_isascii(127) = %d\n", ft_isascii(127));
 	printf("ft_isascii(200) = %d\n", ft_isascii(200));
 }
 
-void test_isdigit(void) {
+void	test_isdigit(void)
+{
 	printf("\nft_isdigit('5') = %d\n", ft_isdigit('5'));
 	printf("ft_isdigit('a') = %d\n", ft_isdigit('a'));
 }
 
-void test_isprint(void) {
+void	test_isprint(void)
+{
 	printf("\nft_isprint('A') = %d\n", ft_isprint('A'));
 	printf("ft_isprint('\\n') = %d\n", ft_isprint('\n'));
 }
 
-void test_memchr(void) {
+void	test_memchr(void)
+{
 	char s[] = "Hello, World!";
 	printf("\nft_memchr(\"hello\", 'e', 5) = %s\n",
 	(char *)ft_memchr(s, 'e', 5));
 }
 
-void test_memcmp(void) {
+void	test_memcmp(void)
+{
 	char a[] = "Hello, World!";
 	char b[] = "Hello, World!";
 	printf("\nft_memcmp(\"abc\", \"abd\", 3) = %d\n", ft_memcmp(a, b, 3));
 }
 
-void test_memcpy(void) {
+void	test_memcpy(void)
+{
 	char src[] = "Hello, World!";
 	char dest[13];
 	ft_memcpy(dest, src, 6);
@@ -82,7 +94,8 @@ void test_memcpy(void) {
 	printf("ft_memcpy(dest, src, 6)\ndest = \"%s\"\n", dest);
 }
 
-void test_memmove(void) {
+void	test_memmove(void)
+{
 	char str[] = "Hello, World!";
 
 	printf("\nstr = \"%s\"\n", str);
@@ -90,17 +103,29 @@ void test_memmove(void) {
 	printf("ft_memmove(str + 2, str, 4)\nstr = \"%s\"\n", str);
 }
 
-void test_memset(void) {
+void	test_memset(void)
+{
 	char str[] = "Hello, World!";
 	ft_memset(str, 'x', 3);
 	printf("\nft_memset: str = \"%s\"\n", str);
 }
 
-void test_strchr(void) {
+void	test_split()
+{
+	char	str[13] = "Hello, World!";
+	char	**arr = ft_split(str, ' ');
+	printf("ft_split(\"Hello, Wprld!\", \" \")");
+	for (int i = 0; arr[i] != NULL; i++)
+		printf("%s\n", arr[i]);
+}
+
+void	test_strchr(void)
+{
 	printf("\nft_strchr(\"hello\", 'l') = %s\n", ft_strchr("hello", 'l'));
 }
 
-void test_strdup(void) {
+void	test_strdup(void)
+{
 	char *str = ft_strdup("libft");
 	printf("\nft_strdup(\"libft\") = \"%s\"\n", str);
 	free(str);
@@ -113,7 +138,8 @@ void	test_strjoin(void)
 	free(str);
 }
 
-void test_strlcat(void) {
+void	test_strlcat(void)
+{
 	char dest[130] = "Hello, ";
 	char str[130] = "World!";
 	printf("\ndest = \"%s\"\n", dest);
@@ -122,29 +148,34 @@ void test_strlcat(void) {
 	printf("\ndest + src = %s\n", dest);
 }
 
-void test_strlcpy(void) {
+void	test_strlcpy(void)
+{
 	char str[10];
 	printf("\nft_strlcpy(str, \"libft\", 10) = %lu\n", ft_strlcpy(str, "libft", 10));
 	printf("dest = \"%s\"\n", str);
 }
 
-void test_strlen(void) {
+void	test_strlen(void)
+{
 	printf("\nft_strlen(\"42\") = %u\n", ft_strlen("42"));
 }
 
-void test_strncmp(void) {
+void	test_strncmp(void)
+{
 	printf("\nft_strncmp(\"abc\", \"abd\", 3) = %d\n", ft_strncmp("abc", "abd", 3));
 }
 
-void test_strnstr(void) {
+void	test_strnstr(void)
+{
 	printf("\nft_strnstr(\"hello world\", \"world\", 11) = %s\n", ft_strnstr("Hello, World!", "World!", 11));
 }
 
-void test_strrchr(void) {
+void	test_strrchr(void)
+{
 	printf("\nft_strrchr(\"banana\", 'a') = %s\n", ft_strrchr("banana", 'a'));
 }
 
-void test_strtrim(void)
+void	test_strtrim(void)
 {
 	char *str = ft_strtrim("Hello, World!", ",");
 	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
@@ -152,28 +183,34 @@ void test_strtrim(void)
 	free(str);
 }
 
-void test_substr(void) {
+void	test_substr(void)
+{
 	char *str = ft_substr("Hello, World!", 7, 6);
 	printf("\nft_substr(\"Hello, World!\", 7, 6) = \"%s\"\n", str);
 	free(str);
 }
 
-void test_tolower(void) {
+void	test_tolower(void)
+{
 	printf("\nft_tolower('A') = %c\n", ft_tolower('A'));
 }
 
-void test_toupper(void) {
+void	test_toupper(void)
+{
 	printf("\nft_toupper('a') = %c\n", ft_toupper('a'));
 }
 
-void executar_teste(void (*func)())
-{
-	system("make re");
-	system("cc -Ilibft main.c libft.a -o test && ./test && rm test");
-	system("clear");
-	func();
-	printf("\nPressione Enter para continuar...");
-	getchar(); getchar();
+void recompilar_binario() {
+    system("make re"); 
+    system("cc -Ilibft main.c libft.a -o test"); 
+}
+
+void executar_teste(void (*func)()) {
+    printf("\n==================== Output ====================\n");
+    func();
+    printf("\nPressione Enter para continuar...");
+    getchar(); getchar();
+    system("clear");
 }
 
 int main(void) {
@@ -187,14 +224,13 @@ int main(void) {
 		printf(" 4. isalnum   14. strchr     24. toupper\n");
 		printf(" 5. isalpha   15. strdup     25. strjoin\n");
 		printf(" 6. isascii   16. strlcat    26. strtrim\n");
-		printf(" 7. isdigit   17. strlcpy    27. \n");
+		printf(" 7. isdigit   17. strlcpy    27. split\n");
 		printf(" 8. isprint   18. strlen     28. \n");
 		printf(" 9. memchr    19. strncmp    29. \n");
 		printf("10. memcmp    20. strnstr    30. \n");
 		printf("\n0. Sair\n");
 		printf("\nEscolha uma opção: ");
 		scanf("%d", &chose);
-		printf("\n==================== Output ====================\n");
 
 		switch (chose) {
 			case 1:  executar_teste(test_atoi); break;
@@ -223,15 +259,12 @@ int main(void) {
 			case 24: executar_teste(test_toupper); break;
 			case 25: executar_teste(test_strjoin); break;
 			case 26: executar_teste(test_strtrim); break;
-			case 27: executar_teste(test_toupper); break;
+			case 27: executar_teste(test_split); break;
 			case 28: executar_teste(test_toupper); break;
 			case 29: executar_teste(test_toupper); break;
 			case 30: executar_teste(test_toupper); break;
-			case 0:
-				printf("Encerrando...\n");
-				return 0;
-			default:
-				printf("Opção inválida!\n");
+			case 0:	printf("Encerrando...\n");	return 0;
+			default: printf("Opção inválida!\n");
 		}
 	}
 }
