@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 16:23:54 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:45:31 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ void	test_split(void)
 
 void	test_itoa(void)
 {
-
+	printf("%s", ft_itoa(13));
 }
 
 void	test_strmapi(void)
@@ -222,7 +222,7 @@ void	test_striteri(void)
 
 }
 
-void	test_striteri(void)
+void	test_putchar_fd(void)
 {
 
 }
@@ -245,32 +245,34 @@ void	test_putnbr_fd(void)
 //Main
 void imprimir_menu()
 {
-	printf("\n============= Menu de Testes Libft =============\n\n");
+	printf("\n============= Menu de Testes Libft =============\n");
 	printf("\n==================== Part 1 ====================\n\n");
-	printf(" 1. atoi       9. memchr     17. strlcpy\n");
-	printf(" 2. bzero     10. memcmp     18. strlen\n");
-	printf(" 3. calloc    11. memcpy     19. strncmp\n");
-	printf(" 4. isalnum   12. memmove    20. strnstr\n");
-	printf(" 5. isalpha   13. memset     21. strrchr\n");
-	printf(" 6. isascii   14. strchr     22. tolower\n");
-	printf(" 7. isdigit   15. strdup     23. toupper\n");
-	printf(" 8. isprint   16. strlcat\n");
+	printf("  1. atoi       9. memchr     17. strlcpy\n");
+	printf("  2. bzero     10. memcmp     18. strlen\n");
+	printf("  3. calloc    11. memcpy     19. strncmp\n");
+	printf("  4. isalnum   12. memmove    20. strnstr\n");
+	printf("  5. isalpha   13. memset     21. strrchr\n");
+	printf("  6. isascii   14. strchr     22. tolower\n");
+	printf("  7. isdigit   15. strdup     23. toupper\n");
+	printf("  8. isprint   16. strlcat\n");
 	printf("\n==================== Part 2 ====================\n\n");
-	printf("24. substr    28. itoa       32. putstr_fd\n");
-	printf("25. strjoin   29. strmapi    33. putendl_fd\n");
-	printf("26. strtrim   30. striteri   34. putnbr_fd\n");
-	printf("27. split     31. putchar_fd   \n");
-	printf("\n0. Sair\n");
+	printf(" 24. substr    28. itoa       32. putstr_fd\n");
+	printf(" 25. strjoin   29. strmapi    33. putendl_fd\n");
+	printf(" 26. strtrim   30. striteri   34. putnbr_fd\n");
+	printf(" 27. split     31. putchar_fd   \n");
+	printf("\n================================================\n");
+
+	printf("\n  0. Sair\n");
+	printf("\n================================================\n");
 }
 
 void executar_teste(void (*func)())
 {
 	printf("\033[H\033[J");
 	imprimir_menu();
-	printf("\nEscolha uma opção: \n");
 	printf("\n==================== Output ====================\n");
 	func();
-	printf("\n==================== Output ====================\n");
+	printf("\n================================================\n");
 	printf("\nEscolha uma opção: ");
 }
 
@@ -306,19 +308,19 @@ int main(void) {
 			case 19: executar_teste(test_strncmp); break;
 			case 20: executar_teste(test_strnstr); break;
 			case 21: executar_teste(test_strrchr); break;
-			case 22: executar_teste(test_substr); break;
-			case 23: executar_teste(test_tolower); break;
-			case 24: executar_teste(test_toupper); break;
+			case 22: executar_teste(test_tolower); break;
+			case 23: executar_teste(test_toupper); break;
+			case 24: executar_teste(test_substr); break;
 			case 25: executar_teste(test_strjoin); break;
 			case 26: executar_teste(test_strtrim); break;
 			case 27: executar_teste(test_split); break;
-			case 28: executar_teste(test_toupper); break;
-			case 29: executar_teste(test_toupper); break;
-			case 30: executar_teste(test_toupper); break;
-			case 31: executar_teste(test_toupper); break;
-			case 32: executar_teste(test_toupper); break;
-			case 33: executar_teste(test_toupper); break;
-			case 34: executar_teste(test_toupper); break;
+			case 28: executar_teste(test_itoa); break;
+			case 29: executar_teste(test_strmapi); break;
+			case 30: executar_teste(test_striteri); break;
+			case 31: executar_teste(test_putchar_fd); break;
+			case 32: executar_teste(test_putstr_fd); break;
+			case 33: executar_teste(test_putendl_fd); break;
+			case 34: executar_teste(test_putnbr_fd); break;
 			case 0:
 				printf("\nEncerrando...\n");
 				return 0;
