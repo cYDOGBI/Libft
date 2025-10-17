@@ -6,16 +6,17 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 00:29:27 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/17 16:23:54 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//Part 1
 void	test_atoi(void)
 {
-	printf("\nft_atoi(\"42\") = %d\n", ft_atoi("42"));
-	printf("ft_atoi(\"13 13\") = %d\n", ft_atoi("13 13"));
+	printf("\nft_atoi(\"42\") = %d\n", ft_atoi(" 42"));
+	printf("ft_atoi(\"13 13\") = %d\n", ft_atoi(" 13 13"));
 }
 
 void	test_bzero(void)
@@ -110,15 +111,6 @@ void	test_memset(void)
 	printf("\nft_memset: str = \"%s\"\n", str);
 }
 
-void	test_split()
-{
-	char	str[13] = "Hello, World!";
-	char	**arr = ft_split(str, ' ');
-	printf("ft_split(\"Hello, Wprld!\", \" \")");
-	for (int i = 0; arr[i] != NULL; i++)
-		printf("%s\n", arr[i]);
-}
-
 void	test_strchr(void)
 {
 	printf("\nft_strchr(\"hello\", 'l') = %s\n", ft_strchr("hello", 'l'));
@@ -128,13 +120,6 @@ void	test_strdup(void)
 {
 	char *str = ft_strdup("libft");
 	printf("\nft_strdup(\"libft\") = \"%s\"\n", str);
-	free(str);
-}
-
-void	test_strjoin(void)
-{
-	char	*str = ft_strjoin("Hello, ", "World!");
-	printf("\nft_strjoin(\"Hello, \", \"World!\") = %s\n", str);
 	free(str);
 }
 
@@ -175,21 +160,6 @@ void	test_strrchr(void)
 	printf("\nft_strrchr(\"banana\", 'a') = %s\n", ft_strrchr("banana", 'a'));
 }
 
-void	test_strtrim(void)
-{
-	char *str = ft_strtrim("Hello, World!", ",");
-	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
-	printf("\nstr_len = %d\n", ft_strlen(str));
-	free(str);
-}
-
-void	test_substr(void)
-{
-	char *str = ft_substr("Hello, World!", 7, 6);
-	printf("\nft_substr(\"Hello, World!\", 7, 6) = \"%s\"\n", str);
-	free(str);
-}
-
 void	test_tolower(void)
 {
 	printf("\nft_tolower('A') = %c\n", ft_tolower('A'));
@@ -200,37 +170,119 @@ void	test_toupper(void)
 	printf("\nft_toupper('a') = %c\n", ft_toupper('a'));
 }
 
-void recompilar_binario() {
-    system("make re"); 
-    system("cc -Ilibft main.c libft.a -o test"); 
+//Part 2
+void	test_substr(void)
+{
+	char *str = ft_substr("Hello, World!", 7, 6);
+	printf("\nft_substr(\"Hello, World!\", 7, 6) = \"%s\"\n", str);
+	free(str);
 }
 
-void executar_teste(void (*func)()) {
-    printf("\n==================== Output ====================\n");
-    func();
-    printf("\nPressione Enter para continuar...");
-    getchar(); getchar();
-    system("clear");
+void	test_strjoin(void)
+{
+	char	*str = ft_strjoin("Hello, ", "World!");
+	printf("\nft_strjoin(\"Hello, \", \"World!\") = %s\n", str);
+	free(str);
+}
+
+void	test_strtrim(void)
+{
+	char *str = ft_strtrim("Hello, World!", ",");
+	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
+	printf("\nstr_len = %d\n", ft_strlen(str));
+	free(str);
+}
+
+void	test_split(void)
+{
+	char	str[] = "Hello, World!";
+	char	c = ' ';
+	char	**arr = ft_split(str, c);
+	printf("\nft_split(\"%s\", \"%c\")", str, c);
+	printf("\n");
+	for (int i = 0; arr[i] != NULL; i++)
+		printf("%d - %s\n", i, arr[i]);
+	for (int i = 0; arr[i] != NULL; i++)
+		free(arr[i]);
+	free(arr);
+}
+
+void	test_itoa(void)
+{
+
+}
+
+void	test_strmapi(void)
+{
+
+}
+
+void	test_striteri(void)
+{
+
+}
+
+void	test_striteri(void)
+{
+
+}
+
+void	test_putstr_fd(void)
+{
+
+}
+
+void	test_putendl_fd(void)
+{
+
+}
+
+void	test_putnbr_fd(void)
+{
+
+}
+
+//Main
+void imprimir_menu()
+{
+	printf("\n============= Menu de Testes Libft =============\n\n");
+	printf("\n==================== Part 1 ====================\n\n");
+	printf(" 1. atoi       9. memchr     17. strlcpy\n");
+	printf(" 2. bzero     10. memcmp     18. strlen\n");
+	printf(" 3. calloc    11. memcpy     19. strncmp\n");
+	printf(" 4. isalnum   12. memmove    20. strnstr\n");
+	printf(" 5. isalpha   13. memset     21. strrchr\n");
+	printf(" 6. isascii   14. strchr     22. tolower\n");
+	printf(" 7. isdigit   15. strdup     23. toupper\n");
+	printf(" 8. isprint   16. strlcat\n");
+	printf("\n==================== Part 2 ====================\n\n");
+	printf("24. substr    28. itoa       32. putstr_fd\n");
+	printf("25. strjoin   29. strmapi    33. putendl_fd\n");
+	printf("26. strtrim   30. striteri   34. putnbr_fd\n");
+	printf("27. split     31. putchar_fd   \n");
+	printf("\n0. Sair\n");
+}
+
+void executar_teste(void (*func)())
+{
+	printf("\033[H\033[J");
+	imprimir_menu();
+	printf("\nEscolha uma opção: \n");
+	printf("\n==================== Output ====================\n");
+	func();
+	printf("\n==================== Output ====================\n");
+	printf("\nEscolha uma opção: ");
 }
 
 int main(void) {
 	int chose;
 
-	while (1) {
-		printf("\n============= Menu de Testes Libft =============\n\n");
-		printf(" 1. atoi      11. memcpy     21. strrchr\n");
-		printf(" 2. bzero     12. memmove    22. substr\n");
-		printf(" 3. calloc    13. memset     23. tolower\n");
-		printf(" 4. isalnum   14. strchr     24. toupper\n");
-		printf(" 5. isalpha   15. strdup     25. strjoin\n");
-		printf(" 6. isascii   16. strlcat    26. strtrim\n");
-		printf(" 7. isdigit   17. strlcpy    27. split\n");
-		printf(" 8. isprint   18. strlen     28. \n");
-		printf(" 9. memchr    19. strncmp    29. \n");
-		printf("10. memcmp    20. strnstr    30. \n");
-		printf("\n0. Sair\n");
-		printf("\nEscolha uma opção: ");
-		scanf("%d", &chose);
+	imprimir_menu();
+	printf("\nEscolha uma opção: ");
+
+	while (scanf("%d", &chose) == 1) {
+		int c;
+		while ((c = getchar()) != '\n' && c != EOF);
 
 		switch (chose) {
 			case 1:  executar_teste(test_atoi); break;
@@ -263,8 +315,18 @@ int main(void) {
 			case 28: executar_teste(test_toupper); break;
 			case 29: executar_teste(test_toupper); break;
 			case 30: executar_teste(test_toupper); break;
-			case 0:	printf("Encerrando...\n");	return 0;
-			default: printf("Opção inválida!\n");
+			case 31: executar_teste(test_toupper); break;
+			case 32: executar_teste(test_toupper); break;
+			case 33: executar_teste(test_toupper); break;
+			case 34: executar_teste(test_toupper); break;
+			case 0:
+				printf("\nEncerrando...\n");
+				return 0;
+			default:
+				printf("\nOpção inválida!\n");
+				printf("\nEscolha uma opção: ");
+				break;
 		}
 	}
+	return 0;
 }

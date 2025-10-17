@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 10:04:33 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 15:10:24 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/10/17 16:33:49 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/10/17 16:38:16 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	res;
-	int	sign;
+#include "libft.h"
 
-	res = 0;
-	sign = 1;
-	if (str[0] == '-')
-	{
-		sign = -1;
-		str++;
-	}
-	if (str[0] == '+')
-		str++;
-	while (*str == ' ')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		res = (res * 10) + (*str - '0');
-		str++;
-	}
-	return (res *= sign);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	(void)s;
+	(void)f;
 }

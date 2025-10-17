@@ -6,22 +6,72 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 23:29:58 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 00:03:00 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/17 16:29:54 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *str, char c)
+static char	*ft_word_split(const char *s, char c)
 {
-	size_t	i;
+	char	*word;
+	int		i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			printf("%ld\n", i);
+	while (s[i] && s[i] != c)
 		i++;
+	word = (char *) malloc(sizeof(char) * (i + 1));
+	if (!word)
+		return (NULL);
+	ft_strlcpy(word, s, i + 1);
+	word[i] = '\0';
+	return (word);
+}
+
+static int	ft_count(const char *s, char c)
+{
+	int	i;
+	int	words;
+
+	i = 0;
+	words = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			words++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			while (s[i] == c)
+				i++;
 	}
-	return (NULL);
+	return (words);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	arr = (char **) malloc(sizeof(char *) * (ft_count(s, c) + 1));
+	if (!arr)
+		return (NULL);
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			arr[j] = ft_word_split(&s[i], c);
+			while (s[i] && s[i] != c)
+				i++;
+			j++;
+		}
+		else
+			i++;
+	}
+	return (arr);
 }
