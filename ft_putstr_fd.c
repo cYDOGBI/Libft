@@ -6,14 +6,13 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:35:33 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 16:39:12 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:21:21 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	(void)n;
-	(void)fd;
+	write(fd, s, ft_strlen(s));
 }

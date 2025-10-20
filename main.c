@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 17:45:31 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 15:52:04 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	test_bzero(void)
 {
 	char	str[] = "Hello, World!";
 
-	printf("\nString: %s", str);
+	printf("\nstr = \"%s\"", str);
 	ft_bzero(str, 3);
 	printf("\nft_bzero(buffer, 3) = %s\n", str);
 }
@@ -35,7 +35,7 @@ void	test_calloc(void)
 
 	size = 13;
 	arr = ft_calloc(size, sizeof(int));
-	printf("\nft_calloc(4, sizeof(int)) = ");
+	printf("\nft_calloc(%d, sizeof(int)) = ", size);
 	for (int i = 0; i < size; i++)
 		printf("%d ", arr[i]);
 	printf("\n");
@@ -74,9 +74,8 @@ void	test_isprint(void)
 
 void	test_memchr(void)
 {
-	char s[] = "Hello, World!";
-	printf("\nft_memchr(\"hello\", 'e', 5) = %s\n",
-	(char *)ft_memchr(s, 'e', 5));
+	char str[13] = "Hello, World!";
+	printf("\nft_memchr(\"%s\", 'e', 5) = \"%s\"\n", str, ft_memchr(str, 'e', 5));
 }
 
 void	test_memcmp(void)
@@ -91,36 +90,44 @@ void	test_memcpy(void)
 	char src[] = "Hello, World!";
 	char dest[13];
 	ft_memcpy(dest, src, 6);
-	printf("\nSrc = \"%s\"\n", src);
-	printf("ft_memcpy(dest, src, 6)\ndest = \"%s\"\n", dest);
+	printf("\nsrc = \"%s\"\n", src);
+	printf("ft_memcpy(dest, src, 6)\n");
+	printf("dest = \"%s\"\n", dest);
 }
 
 void	test_memmove(void)
 {
-	char str[] = "Hello, World!";
-
+	char	str[50] = "Hello, World!";
 	printf("\nstr = \"%s\"\n", str);
-	ft_memmove(str + 2, str, 4);
-	printf("ft_memmove(str + 2, str, 4)\nstr = \"%s\"\n", str);
+ 	printf("ft_memmove(str + 7, str, 5)");
+	ft_memmove(str + 7, str, 5);
+	printf("\ndest = \"%s\"\n", str);
 }
 
 void	test_memset(void)
 {
-	char str[] = "Hello, World!";
-	ft_memset(str, 'x', 3);
-	printf("\nft_memset: str = \"%s\"\n", str);
+	char	str[] = "Hello, World!";
+	printf("\nstr before ft_memset = \"%s\"\n", str);
+	printf("ft_memset(str, '-', 3)\n");
+	ft_memset(str, '-', 3);
+	printf("str after ft_memset = \"%s\"\n", str);
 }
 
 void	test_strchr(void)
 {
-	printf("\nft_strchr(\"hello\", 'l') = %s\n", ft_strchr("hello", 'l'));
+	char	str[] = "Hello, World!";
+	printf("\nstr = \"%s\"\n", str);
+	printf("ft_strchr(str, 'l') = %s\n", ft_strchr(str, 'l'));
 }
 
 void	test_strdup(void)
 {
-	char *str = ft_strdup("libft");
-	printf("\nft_strdup(\"libft\") = \"%s\"\n", str);
-	free(str);
+	char str[13] = "Hello, World!";
+	char *dest = ft_strdup(str);
+	printf("\nstr = \"%s\"\n", str);
+	printf("ft_strdup(str)\n");
+	printf("dest = \"%s\"\n", dest);
+	free(dest);
 }
 
 void	test_strlcat(void)
@@ -129,15 +136,17 @@ void	test_strlcat(void)
 	char str[130] = "World!";
 	printf("\ndest = \"%s\"\n", dest);
 	printf("src = \"%s\"\n", str);
-	printf("\nft_strlcat(str, \"World!\", 13) = \"%ld\"\n", ft_strlcat(dest, str, 13));
-	printf("\ndest + src = %s\n", dest);
+	printf("\nft_strlcat(dest, str, 13) = %ld\n", ft_strlcat(dest, str, 13));
+	printf("\ndest + src = \"%s\"\n", dest);
 }
 
 void	test_strlcpy(void)
 {
-	char str[10];
-	printf("\nft_strlcpy(str, \"libft\", 10) = %lu\n", ft_strlcpy(str, "libft", 10));
-	printf("dest = \"%s\"\n", str);
+	char str[14] = "Hello, World!";
+	char dest[13];
+	printf("\nstr = \"%s\"", str);
+	printf("\nft_strlcpy(dest, str, 13) = %lu\n", ft_strlcpy(dest, str, 13));
+	printf("dest = \"%s\"\n", dest);
 }
 
 void	test_strlen(void)
@@ -152,12 +161,20 @@ void	test_strncmp(void)
 
 void	test_strnstr(void)
 {
-	printf("\nft_strnstr(\"hello world\", \"world\", 11) = %s\n", ft_strnstr("Hello, World!", "World!", 11));
+	char	str[14] = "HWello, World!";
+	char	to_find[13] = "Wo";
+	char	*dest = ft_strnstr(str, to_find, 13);
+	printf("\nstr = \"%s\"\n", str);
+	printf("to_find = \"%s\"\n", to_find);
+	printf("\nft_strnstr(str, to_find, 13)\n");
+	printf("dest = \"%s\"\n", dest);
 }
 
 void	test_strrchr(void)
 {
-	printf("\nft_strrchr(\"banana\", 'a') = %s\n", ft_strrchr("banana", 'a'));
+	char	*str = "Hello, World!";
+	int		c = 'W';
+	printf("\nft_strrchr(\"%s\", \'%c\') = %s\n", str, c,ft_strrchr(str, c));
 }
 
 void	test_tolower(void)
@@ -189,7 +206,6 @@ void	test_strtrim(void)
 {
 	char *str = ft_strtrim("Hello, World!", ",");
 	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
-	printf("\nstr_len = %d\n", ft_strlen(str));
 	free(str);
 }
 
@@ -209,64 +225,130 @@ void	test_split(void)
 
 void	test_itoa(void)
 {
-	printf("%s", ft_itoa(13));
+	printf("\nft_itoa(0): %s", ft_itoa(0));
+	printf("\nft_itoa(13): %s", ft_itoa(13));
+	printf("\nft_itoa(-13): %s\n", ft_itoa(-13));
+}
+
+//test_strmapi
+char	transform_char(unsigned int i, char c)
+{
+	if (i % 2 == 0)
+		return ft_toupper(c);
+	else
+		return ft_tolower(c);
 }
 
 void	test_strmapi(void)
 {
+	const char *str = "Hello, World!";
+	char *dest;
+	dest = ft_strmapi(str, transform_char);
+	printf("\nBefore ft_strmapi = \"%s\"\n", str);
+	printf("ft_strmapi(src, transform_char)\n");
+	printf("After ft_strmapi = \"%s\"\n", dest);
+	free(dest);
+}
 
+//test_striteri
+void	to_upper(unsigned int i, char *c)
+{
+	if (c[i] >= 'a' && c[i] <= 'z')
+		c[i] -= 32;
 }
 
 void	test_striteri(void)
 {
-
+	char	str[] = "Hello, World!";
+	printf("\nBefore ft_striteri = \"%s\"", str);
+	printf("\nft_striteri(str, to_upper)\n");
+	ft_striteri(str, to_upper);
+	printf("After ft_striteri = \"%s\"\n", str);
 }
 
 void	test_putchar_fd(void)
 {
-
+	int fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd != -1)
+	{
+		ft_putchar_fd('A', fd);
+		close(fd);
+	}
+	printf("\nft_putchar_fd('A', fd)\n\n");
+	printf("output.txt: ");
+	fflush(stdout);
+	system("cat output.txt");
+	printf("\n");
 }
 
 void	test_putstr_fd(void)
 {
-
+	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd != -1)
+	{
+		ft_putstr_fd("Hello, World!", fd);
+		close(fd);
+	}
+	printf("\nft_putstr_fd(\"Hello, World!\", fd)\n\n");
+	printf("output.txt: ");
+	fflush(stdout);
+	system("cat output.txt");
+	printf("\n");
 }
 
 void	test_putendl_fd(void)
 {
-
+	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd != -1)
+	{
+		ft_putendl_fd("Hello, World!", fd);
+		close(fd);
+	}
+	printf("\nft_putendl_fd(\"Hello, World!\", fd)\n\n");
+	printf("output.txt: ");
+	fflush(stdout);
+	system("cat output.txt");
 }
 
 void	test_putnbr_fd(void)
 {
-
+	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd != -1)
+	{
+		ft_putnbr_fd(-13, fd);
+		close(fd);
+	}
+	printf("\nft_putstr_fd(\"Hello, World!\", fd)\n\n");
+	printf("output.txt: ");
+	fflush(stdout);
+	system("cat output.txt");
+	printf("\n");
 }
 
 //Main
-void imprimir_menu()
+void	imprimir_menu()
 {
 	printf("\n============= Menu de Testes Libft =============\n");
 	printf("\n==================== Part 1 ====================\n\n");
-	printf("  1. atoi       9. memchr     17. strlcpy\n");
-	printf("  2. bzero     10. memcmp     18. strlen\n");
-	printf("  3. calloc    11. memcpy     19. strncmp\n");
-	printf("  4. isalnum   12. memmove    20. strnstr\n");
-	printf("  5. isalpha   13. memset     21. strrchr\n");
-	printf("  6. isascii   14. strchr     22. tolower\n");
-	printf("  7. isdigit   15. strdup     23. toupper\n");
-	printf("  8. isprint   16. strlcat\n");
+	printf("   1. atoi       9. memchr     17. strlcpy\n");
+	printf("   2. bzero     10. memcmp     18. strlen\n");
+	printf("   3. calloc    11. memcpy     19. strncmp\n");
+	printf("   4. isalnum   12. memmove    20. strnstr\n");
+	printf("   5. isalpha   13. memset     21. strrchr\n");
+	printf("   6. isascii   14. strchr     22. tolower\n");
+	printf("   7. isdigit   15. strdup     23. toupper\n");
+	printf("   8. isprint   16. strlcat\n");
 	printf("\n==================== Part 2 ====================\n\n");
-	printf(" 24. substr    28. itoa       32. putstr_fd\n");
-	printf(" 25. strjoin   29. strmapi    33. putendl_fd\n");
-	printf(" 26. strtrim   30. striteri   34. putnbr_fd\n");
-	printf(" 27. split     31. putchar_fd   \n");
+	printf("  24. substr    28. itoa       32. putstr_fd\n");
+	printf("  25. strjoin   29. strmapi    33. putendl_fd\n");
+	printf("  26. strtrim   30. striteri   34. putnbr_fd\n");
+	printf("  27. split     31. putchar_fd   \n");
 	printf("\n================================================\n");
 
-	printf("\n  0. Sair\n");
-	printf("\n================================================\n");
+	printf("\n   0. Sair\n");
 }
 
-void executar_teste(void (*func)())
+void	executar_teste(void (*func)())
 {
 	printf("\033[H\033[J");
 	imprimir_menu();
@@ -276,7 +358,7 @@ void executar_teste(void (*func)())
 	printf("\nEscolha uma opção: ");
 }
 
-int main(void) {
+int	main(void) {
 	int chose;
 
 	imprimir_menu();

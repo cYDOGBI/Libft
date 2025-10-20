@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 16:35:42 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:58:15 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <ctype.h>
+# include <fcntl.h>
 
 //Part 1
 int		ft_atoi(char *str);

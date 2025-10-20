@@ -6,14 +6,24 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:35:12 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 16:39:01 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 15:23:08 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	(void)s;
-	(void)fd;
+	long int	nb;
+
+	nb = n;
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_putnbr_fd(nb /10, fd);
+	ft_putchar_fd(nb % 10 + '0', fd);
+
 }

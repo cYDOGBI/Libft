@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:48:31 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 16:27:43 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:59:48 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	s_len;
 
 	i = 0;
-	s_len = 0;
-	while (s[s_len])
-		s_len++;
+	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return (NULL);
 	if (start + len > s_len)

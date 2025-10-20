@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:34:17 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/17 16:38:46 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:02:41 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	(void)c;
-	(void)fd;
+	write(fd, &c, 1);
 }
