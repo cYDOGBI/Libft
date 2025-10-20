@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 11:15:02 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/16 15:13:07 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:59:56 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,29 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	size_t	i;
-	size_t	j;
-	size_t	l;
-	size_t	s1_len;
+	int		i;
+	int		s;
 
+	str = (char *)s1;
 	i = 0;
-	j = 0;
-	l = 0;
-	s1_len = ft_strlen(s1);
-	str = malloc (s1_len + 2);
-	ft_strlcpy(str, s1, s1_len + 1);
+	s = 0;
 	while (str[i])
 	{
-		if (str[i] == set[j])
+		while (str[i] == set[s])
 		{
-			l = i;
-			while (str[l])
-			{
-				str[l] = str[l + 1];
-				l++;
-			}
-			j++;
+			printf("1");
+			i++;
+			s++;
 		}
+
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (NULL);
+}
+
+int	main(void)
+{
+	char *str = ft_strtrim("Hello, World!", "He");
+	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
+	return (0);
 }

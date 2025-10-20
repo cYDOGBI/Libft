@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 15:52:04 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:42:25 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ void	test_strjoin(void)
 
 void	test_strtrim(void)
 {
-	char *str = ft_strtrim("Hello, World!", ",");
+	char *str = ft_strtrim("Hello, World!", "He");
 	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
 	free(str);
 }

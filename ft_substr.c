@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:48:31 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 12:59:48 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:34:25 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 	}
 	substr[i] = '\0';
-	return(substr);
+	return (substr);
 }
