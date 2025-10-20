@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 11:15:02 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 16:59:56 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:02:23 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s = 0;
 	while (str[i])
 	{
-		while (str[i] == set[s])
+		if (str[i] == set[s])
 		{
 			printf("1");
 			i++;
