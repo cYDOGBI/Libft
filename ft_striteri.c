@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:33:49 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 10:45:54 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:21:26 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	s_len = ft_strlen(s);
 	i = 0;
-	while(i < s_len)
+	while (i < s_len)
 	{
 		f(i, s);
 		i++;

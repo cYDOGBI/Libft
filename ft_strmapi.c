@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:33:18 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 10:00:59 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:21:42 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!str)
 		return (NULL);
 	i = 0;
-	while(i < s_len)
+	while (i < s_len)
 	{
 		str[i] = (*f)(i, s[i]);
 		i++;

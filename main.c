@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 16:42:25 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:57:17 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,9 @@ void	test_memset(void)
 
 void	test_strchr(void)
 {
-	char	str[] = "Hello, World!";
-	printf("\nstr = \"%s\"\n", str);
-	printf("ft_strchr(str, 'l') = %s\n", ft_strchr(str, 'l'));
+	char	*str = "Hewllo, World!";
+	int		c = 'W';
+	printf("\nft_strrchr(\"%s\", \'%c\') = %s\n", str, c, ft_strchr(str, c));
 }
 
 void	test_strdup(void)
@@ -174,7 +174,7 @@ void	test_strrchr(void)
 {
 	char	*str = "Hello, World!";
 	int		c = 'W';
-	printf("\nft_strrchr(\"%s\", \'%c\') = %s\n", str, c,ft_strrchr(str, c));
+	printf("\nft_strrchr(\"%s\", \'%c\') = %s\n", str, c, ft_strrchr(str, c));
 }
 
 void	test_tolower(void)
@@ -190,8 +190,8 @@ void	test_toupper(void)
 //Part 2
 void	test_substr(void)
 {
-	char *str = ft_substr("Hello, World!", 7, 6);
-	printf("\nft_substr(\"Hello, World!\", 7, 6) = \"%s\"\n", str);
+	char *str = ft_substr("Hello, World!", 7, 10);
+	printf("\nft_substr(\"Hello, World!\", 7, 10) = \"%s\"\n", str);
 	free(str);
 }
 
@@ -204,9 +204,12 @@ void	test_strjoin(void)
 
 void	test_strtrim(void)
 {
-	char *str = ft_strtrim("Hello, World!", "He");
-	printf("\nft_strtrim(\"Hello, World!\", \",\") = %s\n", str);
-	free(str);
+	char	*str = "Hello, World!";
+	char	*set = "Helo, ";
+	char	*str_trim = ft_strtrim(str, set);
+
+	printf("ft_strtrim(\"%s\", \"%s\"): \"%s\"\n", str, set, str_trim);
+	free(str_trim);
 }
 
 void	test_split(void)
@@ -318,7 +321,7 @@ void	test_putnbr_fd(void)
 		ft_putnbr_fd(-13, fd);
 		close(fd);
 	}
-	printf("\nft_putstr_fd(\"Hello, World!\", fd)\n\n");
+	printf("\nft_putstr_fd(-13, fd)\n\n");
 	printf("output.txt: ");
 	fflush(stdout);
 	system("cat output.txt");

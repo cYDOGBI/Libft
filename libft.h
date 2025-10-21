@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 16:30:55 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:20:36 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list
 {
-void *content;
-struct s_list *next;
+	void			*content;
+	struct s_list	*next;
 }	t_list;
 
 #endif
