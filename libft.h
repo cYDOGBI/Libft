@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/21 12:20:36 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/22 15:29:50 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 # include <string.h>
 # include <ctype.h>
 # include <fcntl.h>
+# include <limits.h>
+# include <stdint.h>
 
 //Part 1
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	ft_bzero(void *str, size_t size);
 void	*ft_calloc(size_t nmemb, size_t len);
 int		ft_isalnum(int c);

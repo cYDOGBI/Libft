@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:22:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 16:31:22 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/22 15:28:01 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void	*ft_calloc(size_t nmemb, size_t len)
 {
 	int	*array;
 
-	if (nmemb == 0 || len == 0)
+	if (len != 0 && nmemb > SIZE_MAX / len)
 		return (NULL);
 	array = malloc(nmemb * len);
+	if (!array)
+		return (NULL);
 	ft_memset(array, 0, nmemb * len);
 	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 12:28:50 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/20 11:34:48 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/22 12:08:33 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_memchr(const void *src, int c, size_t len)
 {
-	char	*src_ptr;
+	unsigned char	*src_ptr;
 
-	src_ptr = (char *)src;
+	src_ptr = (unsigned char *)src;
 	while (len--)
 	{
-		if (*src_ptr == c)
+		if (*src_ptr == (unsigned char)c)
 			return ((char *)src_ptr);
 		src_ptr++;
 	}
