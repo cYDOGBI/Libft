@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/22 15:29:50 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:09:07 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t len);
 size_t	ft_strlcpy(char *dest, const char *src, size_t len);
-int		ft_strlen(char const *str);
+size_t		ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *str, int c);
