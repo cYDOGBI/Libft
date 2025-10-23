@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 23:29:58 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/22 15:02:44 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/23 09:39:07 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char	*ft_word_split(const char *s, char c)
 	return (word);
 }
 
-static int	ft_count(const char *s, char c)
+static int	ft_words_count(const char *s, char c)
 {
 	int	i;
 	int	words;
@@ -58,7 +58,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	arr = (char **) malloc(sizeof(char *) * (ft_count(s, c) + 1));
+	arr = (char **) malloc(sizeof(char *) * (ft_words_count(s, c) + 1));
 	if (!arr)
 		return (NULL);
 	while (s[i])
