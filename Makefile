@@ -6,7 +6,7 @@
 #    By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 16:50:18 by tlaranje          #+#    #+#              #
-#    Updated: 2025/10/23 09:43:08 by tlaranje         ###   ########.fr        #
+#    Updated: 2025/10/23 16:21:14 by tlaranje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME): ${OBJS}
 all: $(NAME)
 
 clean:
-	@${RM} $(OBJS) ${BONUS_OBJS}
+	@${RM} $(OBJS)
 
 fclean:	clean
 	@${RM} $(NAME)

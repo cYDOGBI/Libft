@@ -6,20 +6,16 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/22 17:09:07 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/23 16:40:42 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <stdlib.h>
+# include <stddef.h>
 # include <unistd.h>
-# include <string.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <limits.h>
+# include <stdlib.h>
 # include <stdint.h>
 
 //Part 1
@@ -40,7 +36,7 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t len);
 size_t	ft_strlcpy(char *dest, const char *src, size_t len);
-size_t		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *str, int c);
@@ -59,11 +55,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
 #endif
