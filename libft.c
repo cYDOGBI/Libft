@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/21 15:57:17 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/24 14:53:32 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	test_isprint(void)
 void	test_memchr(void)
 {
 	char str[13] = "Hello, World!";
-	printf("\nft_memchr(\"%s\", 'e', 5) = \"%s\"\n", str, ft_memchr(str, 'e', 5));
+	printf("\nft_memchr(\"%s\", 'e', 5) = \"%s\"\n", str,
+	ft_memchr(str, 'e', 5));
 }
 
 void	test_memcmp(void)
@@ -156,7 +157,8 @@ void	test_strlen(void)
 
 void	test_strncmp(void)
 {
-	printf("\nft_strncmp(\"abc\", \"abd\", 3) = %d\n", ft_strncmp("abc", "abd", 3));
+	printf("\nft_strncmp(\"abc\", \"abd\", 3) = %d\n",
+	ft_strncmp("abc", "abd", 3));
 }
 
 void	test_strnstr(void)
@@ -233,15 +235,6 @@ void	test_itoa(void)
 	printf("\nft_itoa(-13): %s\n", ft_itoa(-13));
 }
 
-//test_strmapi
-char	transform_char(unsigned int i, char c)
-{
-	if (i % 2 == 0)
-		return ft_toupper(c);
-	else
-		return ft_tolower(c);
-}
-
 void	test_strmapi(void)
 {
 	const char *str = "Hello, World!";
@@ -251,13 +244,6 @@ void	test_strmapi(void)
 	printf("ft_strmapi(src, transform_char)\n");
 	printf("After ft_strmapi = \"%s\"\n", dest);
 	free(dest);
-}
-
-//test_striteri
-void	to_upper(unsigned int i, char *c)
-{
-	if (c[i] >= 'a' && c[i] <= 'z')
-		c[i] -= 32;
 }
 
 void	test_striteri(void)
@@ -328,25 +314,208 @@ void	test_putnbr_fd(void)
 	printf("\n");
 }
 
+//Bonus
+void	test_lstnew(void)
+{
+	t_list *node = ft_lstnew("Olá 42!");
+
+	printf("Conteúdo: %s\n", (char *)node->content);
+	if (node->next == NULL)
+	printf("Next é NULL ✅\n");
+	else
+	printf("Next não é NULL ❌\n");
+	free(node);
+}
+
+void	test_lstadd_front(void)
+{
+	t_list *list = NULL;
+	t_list *node1 = ft_lstnew("world");
+	t_list *node2 = ft_lstnew("hello");
+	ft_lstadd_front(&list, node1);
+	ft_lstadd_front(&list, node2);
+	while (list)
+	{
+		printf("%s -> ", (char *)list->content);
+		list = list->next;
+	}
+	printf("NULL\n");
+	free(node1);
+	free(node2);
+}
+
+void	test_lstsize(void)
+{
+	t_list *list = NULL;
+	t_list *node1 = ft_lstnew("one");
+	t_list *node2 = ft_lstnew("two");
+	t_list *node3 = ft_lstnew("three");
+	int size = ft_lstsize(list);
+	node1->next = node2;
+	node2->next = node3;
+	list = node1;
+	printf("Tamanho da lista: %d\n", size);
+	free(node1);
+	free(node2);
+	free(node3);
+}
+
+void	test_lstlast(void)
+{
+	t_list *node1 = ft_lstnew("first");
+	t_list *node2 = ft_lstnew("second");
+	t_list *node3 = ft_lstnew("third");
+	node1->next = node2;
+	node2->next = node3;
+	t_list *last = ft_lstlast(node1);
+	if (last)
+		printf("Last node of the list: %s\n", (char *)last->content);
+	else
+		printf("The list is empty\n");
+	free(node1);
+	free(node2);
+	free(node3);
+}
+
+void	test_lstadd_back(void)
+{
+	t_list *list = NULL;
+	t_list *node1 = ft_lstnew("first");
+	t_list *node2 = ft_lstnew("second");
+	t_list *node3 = ft_lstnew("third");
+	ft_lstadd_back(&list, node1);
+	ft_lstadd_back(&list, node2);
+	ft_lstadd_back(&list, node3);
+	while (list)
+	{
+		printf("%s -> ", (char *)list->content);
+		list = list->next;
+	}
+	printf("NULL\n");
+	free(node1);
+	free(node2);
+	free(node3);
+}
+
+void	test_lstdelone(void)
+{
+	t_list *node1 = ft_lstnew(strdup("Node 1"));
+	t_list *node2 = ft_lstnew(strdup("Node 2"));
+	node1->next = node2;
+	printf("Antes de ft_lstdelone:\n");
+	for (t_list *tmp = node1; tmp; tmp = tmp->next)
+		printf("%s\n", (char *)tmp->content);
+	ft_lstdelone(node2, del);
+	node1->next = NULL;
+	printf("\nDepois de ft_lstdelone:\n");
+	for (t_list *tmp = node1; tmp; tmp = tmp->next)
+		printf("%s\n", (char *)tmp->content);
+	ft_lstdelone(node1, del);
+}
+
+void	test_lstclear(void)
+{
+	t_list *list = NULL;
+
+	t_list *n1 = ft_lstnew(ft_strdup("Primeiro"));
+	t_list *n2 = ft_lstnew(ft_strdup("Segundo"));
+	t_list *n3 = ft_lstnew(ft_strdup("Terceiro"));
+
+	ft_lstadd_back(&list, n1);
+	ft_lstadd_back(&list, n2);
+	ft_lstadd_back(&list, n3);
+
+	t_list *head = list; // <-- usa a cabeça real da lista
+
+	printf("Antes de ft_lstclear:\n");
+	for (t_list *tmp = head; tmp; tmp = tmp->next)
+		printf("%s\n", (char *)tmp->content);
+
+	ft_lstclear(&head, del);
+
+	printf("\nDepois de ft_lstclear:\n");
+	if (head == NULL)
+		printf("Lista vazia ✅\n");
+	else
+		printf("Erro: a lista não foi completamente limpa ❌\n");
+}
+
+void	test_lstiter(void)
+{
+	t_list *list = NULL;
+	t_list *n1 = ft_lstnew(ft_strdup("primeiro"));
+	t_list *n2 = ft_lstnew(ft_strdup("segundo"));
+	t_list *n3 = ft_lstnew(ft_strdup("terceiro"));
+
+	ft_lstadd_back(&list, n1);
+	ft_lstadd_back(&list, n2);
+	ft_lstadd_back(&list, n3);
+
+	printf("Antes de ft_lstiter:\n");
+	for (t_list *tmp = list; tmp; tmp = tmp->next)
+		printf("%s\n", (char *)tmp->content);
+	ft_lstiter(list, lst_to_upper);
+	printf("\nDepois de ft_lstiter:\n");
+	for (t_list *tmp = list; tmp; tmp = tmp->next)
+		printf("%s\n", (char *)tmp->content);
+}
+
+void	test_ft_lstmap(void)
+{
+
+}
+
+//Others
+char	transform_char(unsigned int i, char c)
+{
+	if (i % 2 == 0)
+		return ft_toupper(c);
+	else
+		return ft_tolower(c);
+}
+
+void	del(void *content)
+{
+	free(content);
+}
+
+void	to_upper(unsigned int i, char *c)
+{
+	if (c[i] >= 'a' && c[i] <= 'z')
+	c[i] -= 32;
+}
+
+void	lst_to_upper(void *content)
+{
+	char *str = (char *)content;
+	for (int i = 0; str[i]; i++)
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
+}
+
 //Main
 void	imprimir_menu()
 {
-	printf("\n============= Menu de Testes Libft =============\n");
-	printf("\n==================== Part 1 ====================\n\n");
-	printf("   1. atoi       9. memchr     17. strlcpy\n");
-	printf("   2. bzero     10. memcmp     18. strlen\n");
-	printf("   3. calloc    11. memcpy     19. strncmp\n");
-	printf("   4. isalnum   12. memmove    20. strnstr\n");
-	printf("   5. isalpha   13. memset     21. strrchr\n");
-	printf("   6. isascii   14. strchr     22. tolower\n");
-	printf("   7. isdigit   15. strdup     23. toupper\n");
-	printf("   8. isprint   16. strlcat\n");
-	printf("\n==================== Part 2 ====================\n\n");
-	printf("  24. substr    28. itoa       32. putstr_fd\n");
-	printf("  25. strjoin   29. strmapi    33. putendl_fd\n");
-	printf("  26. strtrim   30. striteri   34. putnbr_fd\n");
-	printf("  27. split     31. putchar_fd   \n");
-	printf("\n================================================\n");
+	printf("\n=============== Menu de Testes Libft ===============\n");
+	printf("\n====================== Part 1 ======================\n\n");
+	printf("   1. atoi           9. memchr         17. strlcpy\n");
+	printf("   2. bzero          10. memcmp        18. strlen\n");
+	printf("   3. calloc         11. memcpy        19. strncmp\n");
+	printf("   4. isalnum        12. memmove       20. strnstr\n");
+	printf("   5. isalpha        13. memset        21. strrchr\n");
+	printf("   6. isascii        14. strchr        22. tolower\n");
+	printf("   7. isdigit        15. strdup        23. toupper\n");
+	printf("   8. isprint        16. strlcat\n");
+	printf("\n====================== Part 2 ======================\n\n");
+	printf("  24. substr         28. itoa          32. putstr_fd\n");
+	printf("  25. strjoin        29. strmapi       33. putendl_fd\n");
+	printf("  26. strtrim        30. striteri      34. putnbr_fd\n");
+	printf("  27. split          31. putchar_fd\n");
+	printf("\n====================== Bonus =======================\n");
+	printf("  35. lstnew         38. lstlast       41. lstclear\n");
+	printf("  36. lstadd_front   39. lstadd_back   42. lstiter\n");
+	printf("  37. lstsize        40. lstdelone     43. ft_lstmap\n");
+	printf("\n====================================================\n");
 
 	printf("\n   0. Sair\n");
 }
