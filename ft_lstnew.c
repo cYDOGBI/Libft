@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 09:34:54 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/24 10:04:56 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/25 20:57:15 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*ptr;
+
 	ptr = malloc(sizeof(t_list));
-	if(!ptr)
+	if (!ptr)
 		return (NULL);
 	ptr->content = content;
 	ptr->next = NULL;
