@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/09 16:50:18 by tlaranje          #+#    #+#              #
-#    Updated: 2025/10/26 00:27:56 by tlaranje         ###   ########.fr        #
+#    Created: 2025/10/27 11:56:18 by tlaranje          #+#    #+#              #
+#    Updated: 2025/10/27 11:56:35 by tlaranje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,15 @@ PART1 = ft_tolower.c ft_toupper.c ft_isprint.c ft_isascii.c ft_isalnum.c \
 		ft_strrchr.c ft_strnstr.c ft_bzero.c ft_memchr.c ft_memcmp.c \
 		ft_memset.c ft_memmove.c ft_strlcpy.c
 
-
 PART2 = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 		ft_striteri.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c \
 		ft_putendl_fd.c	ft_putnbr_fd.c
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-		ft_lstiter.c ft_lstsize.c ft_lstlast.c ft_lstmap.c
+BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c \
+		ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+		ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c
 
 SRC = ${PART1} ${PART2}
-
 OBJS = $(SRC:.c=.o)
 BONUS_OBJS = ${BONUS:.c=.o}
 
@@ -36,23 +35,23 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I .
 
-%.o:%.c
-	@${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
+%.o: %.c
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 $(NAME): ${OBJS}
-	@ar rcs ${NAME} ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 all: $(NAME)
 
-bonus:	${OBJS} ${BONUS_OBJS}
-	@ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
+bonus:
+	@make OBJS="$(OBJS) $(BONUS_OBJS)" all --no-print-directory
 
 clean:
-	@${RM} $(OBJS) ${BONUS_OBJS}
+	${RM} $(OBJS) $(BONUS_OBJS)
 
-fclean:	clean
-	@${RM} $(NAME)
+fclean: clean
+	${RM} $(NAME)
 
-re:	fclean all
+re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
