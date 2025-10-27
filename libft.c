@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:41:47 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/25 22:34:50 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/27 09:56:21 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -460,7 +460,7 @@ void	test_lstiter(void)
 		printf("%s\n", (char *)tmp->content);
 }
 
-void	test_ft_lstmap(void)
+void	test_lstmap(void)
 {
 	t_list *list = NULL;
 	t_list *mapped;
@@ -536,7 +536,7 @@ void	imprimir_menu()
 	printf("\n====================== Bonus =======================\n");
 	printf("  35. lstnew         38. lstlast       41. lstclear\n");
 	printf("  36. lstadd_front   39. lstadd_back   42. lstiter\n");
-	printf("  37. lstsize        40. lstdelone     43. ft_lstmap\n");
+	printf("  37. lstsize        40. lstdelone     43. lstmap\n");
 	printf("\n====================================================\n");
 
 	printf("\n   0. Sair\n");
@@ -597,6 +597,15 @@ int	main(void) {
 			case 32: executar_teste(test_putstr_fd); break;
 			case 33: executar_teste(test_putendl_fd); break;
 			case 34: executar_teste(test_putnbr_fd); break;
+			case 35: executar_teste(test_lstnew); break;
+			case 36: executar_teste(test_lstadd_front); break;
+			case 37: executar_teste(test_lstsize); break;
+			case 38: executar_teste(test_lstlast); break;
+			case 39: executar_teste(test_lstadd_back); break;
+			case 40: executar_teste(test_lstdelone); break;
+			case 41: executar_teste(test_lstclear); break;
+			case 42: executar_teste(test_lstiter); break;
+			case 43: executar_teste(test_lstmap); break;
 			case 0:
 				printf("\nEncerrando...\n");
 				return 0;
@@ -607,5 +616,4 @@ int	main(void) {
 		}
 	}
 	return 0;
-}
- */
+} */
