@@ -10,7 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include "libft.h"
+#include "libft.h"
+
+char	transform_char(unsigned int i, char c);
+void	del(void *content);
+void	to_upper(unsigned int i, char *c);
+void	lst_to_upper(void *content);
+void *to_uppercase(void *content);
 
 //Part 1
 void	test_atoi(void)
@@ -152,7 +158,7 @@ void	test_strlcpy(void)
 
 void	test_strlen(void)
 {
-	printf("\nft_strlen(\"42\") = %u\n", ft_strlen("42"));
+	printf("\nft_strlen(\"42\") = %zu\n", ft_strlen("42"));
 }
 
 void	test_strncmp(void)
@@ -399,8 +405,8 @@ void	test_lstadd_back(void)
 
 void	test_lstdelone(void)
 {
-	t_list *node1 = ft_lstnew(strdup("Node 1"));
-	t_list *node2 = ft_lstnew(strdup("Node 2"));
+	t_list *node1 = ft_lstnew(ft_strdup("Node 1"));
+	t_list *node2 = ft_lstnew(ft_strdup("Node 2"));
 	node1->next = node2;
 	printf("Antes de ft_lstdelone:\n");
 	for (t_list *tmp = node1; tmp; tmp = tmp->next)
@@ -616,4 +622,4 @@ int	main(void) {
 		}
 	}
 	return 0;
-} */
+}
