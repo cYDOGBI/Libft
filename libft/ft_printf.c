@@ -6,11 +6,11 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 10:47:30 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/30 12:01:27 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:46:23 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	handle_format(const char str, va_list args)
 {

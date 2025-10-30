@@ -6,7 +6,7 @@
 #    By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:56:18 by tlaranje          #+#    #+#              #
-#    Updated: 2025/10/28 09:22:54 by tlaranje         ###   ########.fr        #
+#    Updated: 2025/10/30 15:54:01 by tlaranje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,11 @@ BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c \
 		ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
 		ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c
 
-SRC = ${PART1} ${PART2}
+FT_PRINTF = ft_printf.c ft_put_char_str.c ft_put_nbr_unbr.c ft_put_ptr_hex.c
+
+SRC = $(PART1) $(PART2) $(BONUS) $(FT_PRINTF)
 OBJS = $(SRC:.c=.o)
-BONUS_OBJS = ${BONUS:.c=.o}
+#BONUS_OBJS = $(BONUS:.c=.o)
 
 CC = cc
 RM = rm -f
@@ -36,21 +38,21 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I .
 
 %.o: %.c
-	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(NAME): ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 all: $(NAME)
 
-bonus:
-	make OBJS="$(OBJS) $(BONUS_OBJS)" all --no-print-directory
+#bonus:
+	#make OBJS="$(OBJS) $(BONUS_OBJS)" all --no-print-directory
 
 clean:
-	${RM} $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	${RM} $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -6,11 +6,11 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:02:23 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/28 13:10:12 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:46:32 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putnbr(long n)
 {
