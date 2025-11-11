@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/30 15:52:36 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/11 12:27:29 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include <fcntl.h>
 # include <stdio.h>
-#include <stdarg.h>
+# include <stdarg.h>
 
 //Part 1
 int		ft_atoi(const char *str);
@@ -80,12 +80,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_utoa(unsigned long un);
 
 //ft_printf
-int	ft_printf(const char *format, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putptr(void *p);
-int	ft_puthex(unsigned long n, int up_lo_case);
-int	ft_putnbr(long n);
-int	ft_putunbr(unsigned long un);
+int		ft_printf(const char *format, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putptr(void *p);
+int		ft_puthex(unsigned long n, int up_lo_case);
+int		ft_putnbr(long n);
+int		ft_putunbr(unsigned long un);
 
 #endif
