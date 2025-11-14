@@ -6,54 +6,64 @@
 #    By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:56:18 by tlaranje          #+#    #+#              #
-#    Updated: 2025/10/30 15:54:01 by tlaranje         ###   ########.fr        #
+#    Updated: 2025/11/14 14:50:24 by tlaranje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+# === Name ===
+NAME		:= libft.a
 
-PART1 = ft_tolower.c ft_toupper.c ft_isprint.c ft_isascii.c ft_isalnum.c \
-		ft_isdigit.c ft_isalpha.c ft_atoi.c ft_strlen.c ft_strlcat.c \
-		ft_strncmp.c ft_strdup.c ft_calloc.c ft_memcpy.c ft_strchr.c \
-		ft_strrchr.c ft_strnstr.c ft_bzero.c ft_memchr.c ft_memcmp.c \
-		ft_memset.c ft_memmove.c ft_strlcpy.c
+# === Directories ===
+OBJ_DIR		:= obj
 
-PART2 = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
-		ft_striteri.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c \
-		ft_putendl_fd.c	ft_putnbr_fd.c
+# === Source files ===
+FT_IS		:= $(wildcard ./ft_is/*.c)
+FT_LST		:= $(wildcard ./ft_lst/*.c)
+FT_MEM		:= $(wildcard ./ft_mem/*.c)
+FT_NBR		:= $(wildcard ./ft_nbr/*.c)
+FT_PRINTF	:= $(wildcard ./ft_printf/*.c)
+FT_PUT_FD	:= $(wildcard ./ft_put_fd/*.c)
+FT_STR		:= $(wildcard ./ft_str/*.c)
+SRC			:= $(FT_IS) $(FT_LST) $(FT_MEM) $(FT_NBR) $(FT_PRINTF) \
+				$(FT_PUT_FD) $(FT_STR)
 
-BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c \
-		ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
-		ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c
+# === Object files ===
+OBJS		:= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 
-FT_PRINTF = ft_printf.c ft_put_char_str.c ft_put_nbr_unbr.c ft_put_ptr_hex.c
+# === Commands ===
+CC			:= cc
+RM			:= rm -rf
+AR			:= ar rcs
 
-SRC = $(PART1) $(PART2) $(BONUS) $(FT_PRINTF)
-OBJS = $(SRC:.c=.o)
-#BONUS_OBJS = $(BONUS:.c=.o)
+# === Flags ===
+CFLAGS		:= -Wall -Wextra -Werror -I.
 
-CC = cc
-RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I .
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
+# === Build targets ===
 all: $(NAME)
 
-#bonus:
-	#make OBJS="$(OBJS) $(BONUS_OBJS)" all --no-print-directory
+# Create obj directory if it doesn't exist
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
+# Compile .c files into .o files
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Create static library
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+# Remove object files
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJ_DIR)
 
+# Remove executables and object files
 fclean: clean
 	$(RM) $(NAME)
 
+# Rebuild everything
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+# Phony targets that do not correspond to real files
+.PHONY: all clean fclean re
