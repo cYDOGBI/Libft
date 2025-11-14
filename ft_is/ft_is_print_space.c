@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_is_print_space.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 12:01:21 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/14 16:48:33 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/10/10 12:16:44 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/11/14 15:17:58 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
-	return (c >= 0 && c <= 127);
+	return (c >= ' ' && c <= '~');
+}
+
+int	ft_isspace(int c)
+{
+	return (c == ' ');
 }

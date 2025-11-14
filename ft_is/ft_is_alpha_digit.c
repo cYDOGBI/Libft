@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_is_alpha_digit.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 12:16:44 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/14 16:48:48 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/11/14 15:13:47 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/11/14 15:15:56 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+int	ft_isalpha(int c)
 {
-	return (c >= ' ' && c <= '~');
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
 }
