@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_nbr_unbr.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 17:02:23 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/14 16:03:21 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/11/14 15:25:26 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/11/14 16:10:28 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* int	ft_putnbr(long n)
+int	ft_putnbr(long	nbr)
 {
-	int		len;
-	char	*str;
+	char	c;
 
-	str = ft_itoa(n);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
-} */
-
-int	ft_putunbr(unsigned long un)
-{
-	int		len;
-	char	*str;
-
-	str = ft_utoa(un);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	if (nbr >= 10)
+		ft_putnbr(nbr / 10);
+	c = nbr % 10 + '0';
+	write(1, &c, 1);
+	return (ft_strlen(ft_itoa(nbr)));
 }

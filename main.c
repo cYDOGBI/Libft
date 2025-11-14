@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_nbr_unbr.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 17:02:23 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/14 16:03:21 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/11/14 16:04:28 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/11/14 16:24:26 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* int	ft_putnbr(long n)
+int main(int ar, char const *av[])
 {
-	int		len;
-	char	*str;
-
-	str = ft_itoa(n);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
-} */
-
-int	ft_putunbr(unsigned long un)
-{
-	int		len;
-	char	*str;
-
-	str = ft_utoa(un);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	if (ar == 2)
+		ft_putnbr(ft_atoi(av[1]));
+	return (0);
 }
