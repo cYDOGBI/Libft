@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/14 16:08:40 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/16 02:06:16 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_isspace(int c);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	*ft_utoa(unsigned long un);
-int		ft_putnbr(long nbr);
+int		ft_putnbr(long long nbr);
 
 // ft_mem
 void	ft_bzero(void *str, size_t size);
@@ -91,7 +91,6 @@ int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putptr(void *p);
 int	ft_puthex(unsigned long n, int up_lo_case);
-//int	ft_putnbr(long n);
 int	ft_putunbr(unsigned long un);
 
 #endif

@@ -6,19 +6,30 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 15:25:26 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/14 16:10:28 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/16 02:16:26 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr(long	nbr)
+int ft_putnbr(long long nbr)
 {
-	char	c;
+	char		c;
+	int			count;
+	long long	n;
 
-	if (nbr >= 10)
-		ft_putnbr(nbr / 10);
-	c = nbr % 10 + '0';
+	count = 0;
+	n = nbr;
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		count++;
+		n = -n;
+	}
+	if (n >= 10)
+		count += ft_putnbr(n / 10);
+	c = (n % 10) + '0';
 	write(1, &c, 1);
-	return (ft_strlen(ft_itoa(nbr)));
+	count++;
+	return (count);
 }

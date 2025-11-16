@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:04:28 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/14 16:24:26 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/16 02:13:19 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(int ar, char const *av[])
 {
 	if (ar == 2)
-		ft_putnbr(ft_atoi(av[1]));
+	{
+		printf("\nSize: %d", ft_putnbr(ft_atoi(av[1])));
+	}
 	return (0);
 }
