@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/17 12:08:18 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/17 13:54:57 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_isspace(int c);
+int		ft_issign(int c);
 
 // ft_nbr
 int		ft_atoi(const char *str);
