@@ -6,13 +6,13 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 15:25:26 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/16 02:16:26 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:09:30 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_putnbr(long long nbr)
+int	ft_putnbr(long long nbr)
 {
 	char		c;
 	int			count;
