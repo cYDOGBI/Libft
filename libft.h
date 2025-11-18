@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/18 10:05:20 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:43:02 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void	ft_del(void *content);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *newc);
