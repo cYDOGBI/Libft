@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:47:07 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/18 09:56:53 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/18 10:05:52 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	ptr = lst;
 	while (ptr)
 	{
-		//f(ptr->content);
+		(void)f;
+		f(ptr->content);
 		ptr = ptr->next;
 	}
 }

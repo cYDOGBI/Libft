@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:46:55 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/18 09:56:19 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/18 10:05:20 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdarg.h>
-# include "../inc/push_swap.h"
 
 // ft_is
 int		ft_isalnum(int c);
@@ -71,15 +70,15 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 //ft_lst
-/* typedef struct s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}	t_list; */
+}	t_list;
 
+int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *newc);
-int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *newc);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
