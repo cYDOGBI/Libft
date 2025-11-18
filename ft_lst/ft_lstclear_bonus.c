@@ -6,13 +6,13 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 11:45:07 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/11/18 11:43:11 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:32:37 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_del(void *content)
+void	del(void *content)
 {
 	free(content);
 }
